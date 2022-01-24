@@ -1,0 +1,99 @@
+<div class="content m-4">
+  <div class="col-md-12">
+    <div class="card" *ngIf="activityDetails">
+      <div class="card-header"><h5 class="title">Etkinlik Güncelleme</h5></div>
+      <div class="card-body">
+        <form [formGroup]="activityUpdateForm">
+          <div class="mb-3">
+            <label for="activityName"><strong>Etkinlik Adı</strong></label>
+            <div class="form-group">
+              <input
+                type="text"
+                id="activityName"
+                formControlName="activityName"
+                class="form-control"
+                placeholder="Activity Name"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="activityTypeName"><strong>Etkinlik Türü</strong></label>
+            <div class="form-group">
+              <select class="form-control" formControlName="activityTypeId">
+                <option *ngFor="let activityType of activityTypes" [ngValue]="activityType.activityTypeId">
+                  {{ activityType.activityTypeName }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="activityName"><strong>Fiyatlandırma Türü</strong></label>
+            <div class="form-group">
+              <select class="form-control" formControlName="priceType" >
+                <option *ngFor="let priceType of priceTypes" [ngValue]="priceType.priceTypeId">
+                  {{ priceType.priceTypeName }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="activityName"><strong>Fiyat</strong></label>
+            <div class="form-group">
+              <input
+                
+                type="text"
+                id="price"
+                formControlName="price"
+                class="form-control"
+                placeholder="Etkinlik Fiyatı"
+              />
+            </div>
+          <div class="mb-3">
+            <label for="activityName"><strong>Konum </strong></label>
+            <div class="form-group">
+              <input
+                type="text"
+                id="activityLocation"
+                formControlName="activityLocation"
+                class="form-control"
+                placeholder="Konum"
+              />
+            </div>
+          </div>
+          
+          </div>
+          <div class="mb-3">
+            <label for="activityName"><strong>Etkinlik Tarihi</strong></label>
+            <div class="form-group">
+              <input
+                type="date"
+                id="price"
+                formControlName="activityDate"
+                class="form-control"
+                placeholder="Günlük Fiyat"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="activityName"><strong>Açıklama</strong></label>
+            <div class="form-group">
+              <input
+                type="text"
+                id="description"
+                formControlName="description"
+                class="form-control"
+                placeholder="Açıklama"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card-footer">
+        <button class="btn btn-fill btn-primary" (click)="update()">
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

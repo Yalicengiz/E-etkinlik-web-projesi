@@ -1,0 +1,13 @@
+<li *ngIf="cartItems.length>0"  class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Katıldığın Etkinlikler
+          
+       
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <li *ngFor="let cartItem of cartItems">
+        <a  class="dropdown-item" ><span  class="badge bg-primary">{{cartItem.quantity}} </span> {{cartItem.activity.activityName}} <span (click)="cancelJoin(cartItem.activity)" class="badge bg-danger">Sil</span></a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item"> </a></li>
+    </ul>
+  </li>

@@ -1,0 +1,32 @@
+<div class="content">
+  <div class="col-md-10 m-5">
+    <div class="card">
+      <div class="card-header"><h5 class="Süper Kullanıcı Ol"></h5></div>
+      <div class="card-body">
+        <form [formGroup]="superUserAddForm">
+          <div class="form-group">
+            <label class="mb-1">Süper User</label>
+            <input
+              type="text"
+              id="tckn"
+              formControlName="tckn"
+              class="form-control"
+              placeholder="TCKN"
+            />
+            <input
+            type="text"
+            id="url"
+            formControlName="url"
+            class="form-control"
+            style="margin-top:20px;"
+            placeholder="Resim Url'iniz"
+          />
+            <div class="card-footer">
+              <button class="btn btn-fill btn-success" (click)="add()" >Ekle</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

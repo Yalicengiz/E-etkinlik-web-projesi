@@ -1,0 +1,86 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="activityType m-3">
+    <app-activityType></app-activityType></div>
+    <div class="color m-3">
+    <app-isFree></app-isFree></div>
+  </div>
+  <div class="col-md-9">
+    <div *ngIf="dataLoaded == false" class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="search mb-3">
+      <span class="badge bg-info text-dark mb-3"><img src="../../../assets/Icons/search.png">
+        Etkinlik Arama</span>
+      <input
+        type="text"
+        [(ngModel)]="filterText"
+        class="form-control"
+        id="filterText"
+        placeholder="Aramanızı giriniz."
+      />
+    </div>
+    <button
+    (click)="control()"
+    type="button"
+    class="btn btn-primary"
+  >
+    Etkinlik Ekle
+  </button>
+<button
+routerLink="/activitys/superUser"
+type="button"
+class="btn btn-primary"
+>
+Süper Kullanıcı Ol
+</button>
+    <div *ngIf="filterText" class="alert alert-success">
+      You searched {{ filterText }}
+    </div>
+
+    <div class="cards" *ngIf="dataLoaded == true">
+      <div
+        class="card"
+        style="width: 18rem"
+        *ngFor="let activity of activitys | filterPipe: filterText"
+      >
+
+        <div class="card-body" style="display: flex; flex-direction:column; overflow: auto; ">
+          <h5 class="card-title text-center" style="flex-grow: 2;">{{ activity.activityName | uppercase }}</h5>
+          <hr />
+          <p class="card-text">
+            <strong>Etkinlik Tipi:</strong> {{ activity.activityTypeName }} <br />
+            <strong>Fiyatlandırma Tipi: </strong>{{ activity.priceTypeName }} <br />
+            <strong>Tarihi: </strong>{{getFormatDate(activity.activityDate)}} <br />
+            <strong>Konumu: </strong>{{ activity.activityLocation }} <br />
+            <strong>Açıklama: </strong> {{ activity.description }}<br />
+            <strong>Kapasite: </strong> {{ activity.capacity }}<br />
+            <p *ngIf="activity.price==0" style="display: none;"><strong>Fiyat: </strong> {{ activity.price }}<br /> </p>
+            <p *ngIf="activity.price!=0" ><strong>Fiyat: </strong> {{ activity.price }}<br /> </p>
+            <!-- <strong>Aktivite Ücreti: {{activity.price}} </strong> -->
+          
+          
+          
+          <button
+          (click)="join(activity)"
+          type="button"
+          class="btn btn-warning"
+          
+          
+        >
+          Katıl</button>
+
+          <button
+           (click)="control2(activity)"
+
+            type="button"
+            class="btn btn-warning"
+            
+          >
+            Güncelle
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

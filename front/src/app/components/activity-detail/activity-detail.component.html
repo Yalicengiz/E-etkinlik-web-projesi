@@ -1,0 +1,18 @@
+<div class="container" style="margin-left: 10%; margin-right: 10%; margin-top: 5%;">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Etkinlik Adı</th>
+      <th scope="col">Etkinlik Tarihi</th>
+      <th scope="col">İşlem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let activity of activities">
+      <td>{{activity.activityName}}</td>
+      <td>{{getFormatDate(activity.joinDate)}}</td>
+      <td><button class="btn btn-danger" (click)="delete(activity.id)">Katılma işlemini iptal et</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>

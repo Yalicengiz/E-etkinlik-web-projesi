@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\join",
+    "\\src\\app\\services",
+    "\\src\\app\\services\\joinService"
+  ],
+  "SelectedNode": "\\src\\app\\components\\join\\join.component.ts",
+  "PreviewInSolutionExplorer": false
+}

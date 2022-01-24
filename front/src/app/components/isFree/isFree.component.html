@@ -1,0 +1,42 @@
+
+<div class="accordion-item" style="margin-top: 10%;">
+  <h2 class="accordion-header" id="headingOne">
+    <button
+      class="accordion-button collapsed"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseOne"
+      aria-expanded="true"
+      aria-controls="collapseOne"
+    >
+    Fiyata Göre Arama&nbsp;&nbsp; <i class="fas fa-search-dollar"></i>
+    </button>
+  </h2>
+  <div
+    id="collapseOne"
+    class="accordion-collapse collapse"
+    aria-labelledby="headingOne"
+    data-bs-parent="#accordionExample"
+  >
+    <div class="accordion-body">
+      <div class="mb-3">
+        <label for="filterText" class="form-label"></label>
+
+        <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Ücrete Göre Ara.">
+      </div>
+
+      <ul class="list-group">
+
+        <li
+          *ngFor="let priceType of priceTypes | isFreeFilter:filterText "
+          (click)="this.setCurrentIsFree(priceType)"
+          [class]="getCurrentIsFreeClass(priceType)"
+          routerLink="/activitys/isFrees/{{ priceType.priceTypeId }}"
+        >
+          {{ priceType.priceTypeName }}
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
